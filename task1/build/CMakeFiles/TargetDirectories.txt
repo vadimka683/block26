@@ -1,0 +1,3 @@
+C:/Users/vivas/OneDrive/Рабочий стол/Skillbox/блок26/task1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/vivas/OneDrive/Рабочий стол/Skillbox/блок26/task1/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/vivas/OneDrive/Рабочий стол/Skillbox/блок26/task1/build/src/CMakeFiles/task1.dir
