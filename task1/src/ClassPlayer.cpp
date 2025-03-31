@@ -7,21 +7,25 @@
 #include<iomanip>
 
 void Player::inputBuffer() {
+	std::cin.clear();
+	std::cin.ignore();
 	do {
 		shuffleMode = false;
 		std::cout << "Input the track name and its length in sec or exit: ";
 		std::string answer;
 		getline(std::cin, answer);
-		if (answer == "exit") {
-			break;
-		}
 		std::stringstream answer1(answer);
 		std::string name;
 		time_t leght;
 		answer1 >> name >> leght;
+		if (name == "exit") {
+			break;
+		}
 		MyTrack* track = new MyTrack;
 		track->SetName(name);
-		track->SetTrackLeght(leght);
+		if (!track->SetTrackLeght(leght)) {
+			continue;
+		}
 		time_t temp = time(nullptr);
 		tm realtime;
 		localtime_s(&realtime, &temp);
@@ -65,8 +69,9 @@ void Player::playing() {
 	pauseON = false;
 	trackPlayNow = new MyTrack;
 	songSelection();
+	tm temp = trackPlayNow->GetDateCreation();
 	std::cout << "Playing: " << trackPlayNow->GetName() << " Made in: "
-		<< std::put_time(&trackPlayNow->GetDateCreation(), "%d/%m/%Y %H:%M")
+		<< std::put_time(&temp,"%d/%m/%Y %H:%M")
 		<< " Song leght: " << trackPlayNow->GetTrackLeght() / 60 << ":"
 		<< trackPlayNow->GetTrackLeght() % 60 << "\n";
 }
@@ -91,5 +96,6 @@ void Player::stop() {
 		return;
 	}
 	delete trackPlayNow;
+	std::cout << "Stop!\n";
 	trackPlayNow = nullptr;
 }

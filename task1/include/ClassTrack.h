@@ -12,7 +12,7 @@ public:
 	time_t GetTrackLeght(); 
 	std::tm GetDateCreation();
 	void SetName(std::string& value);
-	void SetTrackLeght(time_t& value);
+	bool SetTrackLeght(time_t& value);
 	void SetDateCreation(tm& value);
 
 };

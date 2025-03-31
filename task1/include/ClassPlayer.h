@@ -7,7 +7,7 @@ class Player {
 private:
 	std::map<std::string, MyTrack> buffer;
 	MyTrack* trackPlayNow;
-	bool shuffleMode;
+	bool shuffleMode = false;
 	bool pauseON = false;
 public:
 	void inputBuffer();

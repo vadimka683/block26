@@ -19,10 +19,10 @@ void MyTrack::SetName(std::string& value) {
 	name = value;
 }
 
-void MyTrack::SetTrackLeght(time_t& value) {
+bool MyTrack::SetTrackLeght(time_t& value) {
 	if (value < 0 || (value / 60) > 10) {
 		std::cout << "Error Track Leght\n";
-		return;
+		return false;
 	}
 	trackLeght = value;
 }
